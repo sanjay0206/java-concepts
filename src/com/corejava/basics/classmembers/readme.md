@@ -3,7 +3,7 @@ Static Variables:
 * Initialized when the class is loaded.
 * Only one copy of the static variable that is shared by all instances.
 * Associated with the class itself rather than with any specific instance of the class.
-* bModifications to static variables affect all instances of the class.
+* Modifications to static variables affect all instances of the class.
 
 Non-Static (Instance) Variables:
 * Unique to each instance of a class.
