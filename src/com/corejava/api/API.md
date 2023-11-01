@@ -16,27 +16,30 @@ This API.md file provides a simplified comparison between SOAP and REST API in a
 | Usage        | Commonly used in enterprise-level applications and in situations where security and reliability are critical | Preferred for mobile applications and in situations where scalability and performance are essential |
 
 ### Ordering Pizza with SOAP Request:
-
 ```xml
 <SOAP-ENV:Envelope
-  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-  xmlns:ns1="http://www.example.com/pizzaService">
-  <SOAP-ENV:Body>
-    <ns1:OrderPizza>
-      <size>large</size>
-      <toppings>
-        <topping>pepperoni</topping>
-        <topping>mushrooms</topping>
-      </toppings>
-      <deliveryAddress>
-        <street>123 Main St</street>
-        <city>Anytown</city>
-        <state>CA</state>
-        <zip>12345</zip>
-      </deliveryAddress>
-    </ns1:OrderPizza>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope> 
+        xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:pizza="http://www.example.com/pizzaService">
+    <SOAP-ENV:Body>
+        <pizza:OrderPizza>
+            <pizza:pizzaType>non-vegetarian</pizza:pizzaType>
+            <pizza:pizzaName>Spicy Meat Feast</pizza:pizzaName>
+            <pizza:size>large</pizza:size>
+            <pizza:toppings>
+                <pizza:topping>pepperoni</pizza:topping>
+                <pizza:topping>sausage</pizza:topping>
+                <pizza:topping>ham</pizza:topping>
+                <pizza:topping>bacon</pizza:topping>
+            </pizza:toppings>
+            <pizza:deliveryAddress>
+                <pizza:street>123 Main St</pizza:street>
+                <pizza:city>Anytown</pizza:city>
+                <pizza:state>CA</pizza:state>
+                <pizza:zip>12345</pizza:zip>
+            </pizza:deliveryAddress>
+        </pizza:OrderPizza>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ### Ordering Pizza with SOAP Request:
@@ -44,10 +47,11 @@ This API.md file provides a simplified comparison between SOAP and REST API in a
 POST /api/orderPizza
 Host: www.example.com
 Content-Type: application/json
-
 {
+  "pizzaType": "non-vegetarian",
+  "pizzaName": "Spicy Meat Feast",
   "size": "large",
-  "toppings": ["pepperoni", "mushrooms"],
+  "toppings": ["pepperoni", "sausage", "ham", "bacon"],
   "deliveryAddress": {
     "street": "123 Main St",
     "city": "Anytown",
