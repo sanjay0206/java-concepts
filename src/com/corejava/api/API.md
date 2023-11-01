@@ -22,7 +22,7 @@ This API.md file provides a simplified comparison between SOAP and REST API in a
         xmlns:pizza="http://www.example.com/pizzaService">
     <SOAP-ENV:Body>
         <pizza:OrderPizza>
-            <pizza:pizzaType>non-vegetarian</pizza:pizzaType>
+            <pizza:pizzaCategory>non-vegetarian</pizza:pizzaCategory>
             <pizza:pizzaName>Spicy Meat Feast</pizza:pizzaName>
             <pizza:size>large</pizza:size>
             <pizza:toppings>
@@ -40,6 +40,7 @@ This API.md file provides a simplified comparison between SOAP and REST API in a
         </pizza:OrderPizza>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
+
 ```
 
 ### Ordering Pizza with SOAP Request:
@@ -48,7 +49,7 @@ POST /api/orderPizza
 Host: www.example.com
 Content-Type: application/json
 {
-  "pizzaType": "non-vegetarian",
+  "pizzaCategory": "non-vegetarian",
   "pizzaName": "Spicy Meat Feast",
   "size": "large",
   "toppings": ["pepperoni", "sausage", "ham", "bacon"],
