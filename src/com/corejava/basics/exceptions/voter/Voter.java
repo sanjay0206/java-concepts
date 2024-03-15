@@ -22,7 +22,7 @@ public class Voter {
             try {
                 isEligibleToVote(age);
             } catch (InvalidAgeException e) {
-                e.printStackTrace();
+                System.out.println("Exception occurred: " + e.getMessage());
             } finally {
                 System.out.println("Age validation is done!");
             }
@@ -34,11 +34,9 @@ public class Voter {
 /*
 Enter the no. of test cases: 2
 Enter your age: 16
+Exception occurred: Sorry! your age should be above 18 to vote.
 Age validation is done!
-com.corejava.basics.exceptions.voter.InvalidAgeException: Sorry! your age should be above 18 to vote.
-	at com.corejava.basics.exceptions.voter.Voter.isEligibleToVote(Voter.java:11)
-	at com.corejava.basics.exceptions.voter.Voter.main(Voter.java:23)
-Enter your age: 23
+Enter your age: 19
 Hey! you are eligible to vote.
 Age validation is done!
 */
