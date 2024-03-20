@@ -17,6 +17,11 @@ public class MapSorting {
         List<Integer> sortByKey = new ArrayList<>(unsortedMap.keySet());
         Collections.sort(sortByKey);
         System.out.println("sortByKey: " + sortByKey);
+        // Access values in sorted order
+        for (Integer key : sortByKey) {
+            System.out.println("Key: " + key + ", Value: " + unsortedMap.get(key));
+        }
+
 
         List<String> sortByValue = new ArrayList<>(unsortedMap.values());
         Collections.sort(sortByValue);
