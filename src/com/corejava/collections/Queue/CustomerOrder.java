@@ -1,4 +1,4 @@
-package Queue;
+package com.corejava.collections.Queue;
 import java.util.PriorityQueue;
 
 public class CustomerOrder implements Comparable<CustomerOrder> {
