@@ -31,7 +31,8 @@ public class ATMMain {
         try {
             t1.join();
             t2.join();
-        } catch (InterruptedException ignored) {}
+        } catch (InterruptedException ignored) {
+        }
         // if t1 and t2 are not joined it will print this statement from main thread before completing execution o t1 and t2.
         System.out.println("Available a/c balance after thread execution is $" + account.getBalance());
     }

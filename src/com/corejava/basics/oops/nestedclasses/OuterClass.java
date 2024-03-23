@@ -1,4 +1,4 @@
-package com.corejava.basics.nestedclasses;
+package com.corejava.basics.oops.nestedclasses;
 
 public class OuterClass {
     int num = 6;

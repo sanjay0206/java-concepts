@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> nums = new ArrayList<>(Arrays.asList(43,31,72,29,69));
+        List<Integer> nums = new ArrayList<>(Arrays.asList(43, 31, 72, 29, 69));
         System.out.println(nums);
 
         // sort the array

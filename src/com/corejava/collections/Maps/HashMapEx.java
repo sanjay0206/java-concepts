@@ -14,17 +14,17 @@ public class HashMapEx {
         countryISOCodeMapping.put("Russia", "RU");
         countryISOCodeMapping.put("Japan", "JP");
         countryISOCodeMapping.put("China", "CN");
-        
+
         // will not allow duplicates keys but values are allowed
         countryISOCodeMapping.put("China", "CN");
-        
+
         // will allow null keys 
         countryISOCodeMapping.put(null, "CN");
         countryISOCodeMapping.put(null, "SA");
-        
+
         // No duplicates are allowed
         countryISOCodeMapping.put("China", "CN");
-        
+
         // Adding the elements if it doesn't exists in the Map
         countryISOCodeMapping.putIfAbsent("Maldives", "MD");
 
@@ -35,22 +35,22 @@ public class HashMapEx {
         // HashMap's key set
         Set<String> countries = countryISOCodeMapping.keySet();
         System.out.println("countries : " + countries);
-        
+
 
         // HashMap's values
         Collection<String> isoCodes = countryISOCodeMapping.values();
         System.out.println("isoCodes : " + isoCodes);
-        
+
         // Check if a key exists in a HashMap
         System.out.println(countryISOCodeMapping.containsKey("India"));
 
         // Check if a value exists in a HashMap
         System.out.println(countryISOCodeMapping.containsKey("MD"));
-        
+
         // Iterating a HashMap using forEach
         countryISOCodeMapping.forEach((country, code) -> {
             System.out.println(country + " => " + code);
         });
- 
+
     }
 }

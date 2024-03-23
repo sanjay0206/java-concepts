@@ -28,3 +28,9 @@ public class QueueEx {
         System.out.println("Removed from WaitingQueue : " + name + " | New WaitingQueue : " + waitingQueue);
     }
 }
+
+/*
+WaitingQueue : [Rajeev, Chris, John, Mark, Steven]
+Removed from WaitingQueue : Rajeev | New WaitingQueue : [Chris, John, Mark, Steven]
+Removed from WaitingQueue : Chris | New WaitingQueue : [John, Mark, Steven]
+*/

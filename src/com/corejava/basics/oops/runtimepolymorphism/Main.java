@@ -1,4 +1,4 @@
-package com.corejava.basics.runtimepolymorphism;
+package com.corejava.basics.oops.runtimepolymorphism;
 
 class Animal {
     public void makeSound() {

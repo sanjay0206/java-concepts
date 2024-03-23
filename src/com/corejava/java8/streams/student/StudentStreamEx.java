@@ -46,8 +46,8 @@ public class StudentStreamEx {
         // 2. Find the students who stays in Karnataka and sort them by their names
         System.out.println("2. Find the students who stays in Karnataka and sort them by their names");
         studentList.stream().filter(student -> student.getCity().equals("Karnataka"))
-               .sorted(Comparator.comparing(Student::getFirstName))
-             //   .sorted(Comparator.comparing(Student::getFirstName, Comparator.reverseOrder()))
+                .sorted(Comparator.comparing(Student::getFirstName))
+                //   .sorted(Comparator.comparing(Student::getFirstName, Comparator.reverseOrder()))
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 

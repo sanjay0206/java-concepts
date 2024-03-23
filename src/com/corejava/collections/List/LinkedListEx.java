@@ -1,4 +1,5 @@
 package List;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,24 +36,37 @@ public class LinkedListEx {
 
         friends.addAll(familyFriends);
         System.out.println("After addAll(familyFriends) : " + friends);
-        
+
         // retrieving the first element of LinkedList
-        System.out.println("First element : "+friends.getFirst());
-        
-       // retrieving the last element of LinkedList
-        System.out.println("Last element : "+friends.getLast());
-        
-       // removing the first element of LinkedList
+        System.out.println("First element : " + friends.getFirst());
+
+        // retrieving the last element of LinkedList
+        System.out.println("Last element : " + friends.getLast());
+
+        // removing the first element of LinkedList
         friends.removeFirst();
-        System.out.println("After removing First element : "+friends);
-        
-       // removing the last element of LinkedList
+        System.out.println("After removing First element : " + friends);
+
+        // removing the last element of LinkedList
         friends.removeLast();
-        System.out.println("After removing Last element : "+friends);
-        
-     // Remove all the elements that satisfy the given predicate
+        System.out.println("After removing Last element : " + friends);
+
+        // Remove all the elements that satisfy the given predicate
         friends.removeIf(friend -> friend.startsWith("J"));
-        System.out.println("After removing elements starting with 'J': "+friends);
-        
+        System.out.println("After removing elements starting with 'J': " + friends);
+
     }
 }
+
+/*
+Initial LinkedList : [Rajeev, John, David, Chris]
+After add(3, "Lisa") : [Rajeev, John, David, Lisa, Chris]
+After addFirst("Steve") : [Steve, Rajeev, John, David, Lisa, Chris]
+After addLast("Jennifer") : [Steve, Rajeev, John, David, Lisa, Chris, Jennifer]
+After addAll(familyFriends) : [Steve, Rajeev, John, David, Lisa, Chris, Jennifer, Jesse, Walt]
+First element : Steve
+Last element : Walt
+After removing First element : [Rajeev, John, David, Lisa, Chris, Jennifer, Jesse, Walt]
+After removing Last element : [Rajeev, John, David, Lisa, Chris, Jennifer, Jesse]
+After removing elements starting with 'J': [Rajeev, David, Lisa, Chris]
+*/

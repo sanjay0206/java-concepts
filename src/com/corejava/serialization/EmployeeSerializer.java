@@ -28,8 +28,8 @@ public class EmployeeSerializer {
             return deserializedEmployee;
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
-            return null;
         }
+        return null;
     }
 
     public static void main(String[] args) {

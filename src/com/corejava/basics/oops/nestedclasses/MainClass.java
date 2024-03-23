@@ -1,4 +1,4 @@
-package com.corejava.basics.nestedclasses;
+package com.corejava.basics.oops.nestedclasses;
 
 public class MainClass {
     public static void main(String[] args) {

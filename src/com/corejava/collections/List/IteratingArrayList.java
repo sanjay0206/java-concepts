@@ -22,8 +22,7 @@ public class IteratingArrayList {
             String tvShow = tvShowIterator.next();
             System.out.println(tvShow);
         }
-        
-   
+
         System.out.println("\n=== Iterate using an iterator() and Java 8 forEachRemaining() method ===");
         tvShowIterator = tvShows.iterator();
         tvShowIterator.forEachRemaining(tvShow -> System.out.println(tvShow));
@@ -37,12 +36,12 @@ public class IteratingArrayList {
         }
 
         System.out.println("\n=== Iterate using simple for-each loop ===");
-        for(String tvShow: tvShows) {
+        for (String tvShow : tvShows) {
             System.out.println(tvShow);
         }
 
         System.out.println("\n=== Iterate using for loop with index ===");
-        for(int i = 0; i < tvShows.size(); i++) {
+        for (int i = 0; i < tvShows.size(); i++) {
             System.out.println(tvShows.get(i));
         }
     }

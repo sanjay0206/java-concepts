@@ -1,4 +1,4 @@
-package com.corejava.basics.inheritance;
+package com.corejava.basics.oops.inheritance;
 
 interface Dog {
     void makeNoise();
@@ -10,7 +10,7 @@ interface Cat {
 
 class Cog implements Dog, Cat {
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
         Cog obj = new Cog();
         obj.makeNoise();
     }

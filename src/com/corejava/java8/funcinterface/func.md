@@ -2,11 +2,15 @@
 
 ## Overview
 
-A functional interface in Java is an interface that contains exactly one abstract method. These interfaces play a crucial role in enabling the use of lambda expressions and functional programming concepts introduced in Java 8.
+A functional interface in Java is an interface that contains exactly one abstract method. These interfaces play a
+crucial role in enabling the use of lambda expressions and functional programming concepts introduced in Java 8.
 
 ### Definition
-- A functional interface contains exactly one abstract method, which is intended to represent behavior that can be passed around as data.
-- Functional interfaces are designed to support lambda expressions and method references, providing a more concise and expressive way to represent behavior as data.
+
+- A functional interface contains exactly one abstract method, which is intended to represent behavior that can be
+  passed around as data.
+- Functional interfaces are designed to support lambda expressions and method references, providing a more concise and
+  expressive way to represent behavior as data.
 
 ### Example
 

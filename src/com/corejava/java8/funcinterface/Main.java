@@ -4,6 +4,11 @@ package com.java8.funcinterface;
 
 @FunctionalInterface
 interface A {
+    // Static method
+    static void hey() {
+        System.out.println("This is hey method.");
+    }
+
     // Abstract method
     void display(String message);
 
@@ -12,14 +17,9 @@ interface A {
         System.out.println("This is hello method.");
     }
 
-    // Static method
-    static void hey() {
-        System.out.println("This is hey method.");
-    }
-
     // void add();
 
-     String toString(); // if you have any method which is in object class it will not complain
+    String toString(); // if you have any method which is in object class it will not complain
 }
 
 //class B implements A {

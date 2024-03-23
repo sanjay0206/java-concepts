@@ -1,4 +1,5 @@
 package com.corejava.collections.Queue;
+
 import java.util.PriorityQueue;
 
 public class CustomerOrder implements Comparable<CustomerOrder> {
@@ -10,6 +11,20 @@ public class CustomerOrder implements Comparable<CustomerOrder> {
         this.orderId = orderId;
         this.orderAmount = orderAmount;
         this.customerName = customerName;
+    }
+
+    public static void main(String[] args) {
+        CustomerOrder c1 = new CustomerOrder(1, 100.0, "customer1");
+        CustomerOrder c2 = new CustomerOrder(3, 50.0, "customer3");
+        CustomerOrder c3 = new CustomerOrder(2, 300.0, "customer2");
+
+        PriorityQueue<CustomerOrder> customerOrders = new PriorityQueue<>();
+        customerOrders.add(c1);
+        customerOrders.add(c2);
+        customerOrders.add(c3);
+        while (!customerOrders.isEmpty()) {
+            System.out.println(customerOrders.poll());
+        }
     }
 
     @Override
@@ -25,18 +40,10 @@ public class CustomerOrder implements Comparable<CustomerOrder> {
     public double getOrderAmount() {
         return orderAmount;
     }
-    public static void main(String[] args) {
-    	CustomerOrder c1 = new CustomerOrder(1, 100.0, "customer1");
-    	CustomerOrder c2 = new CustomerOrder(3, 50.0, "customer3");
-    	CustomerOrder c3 = new CustomerOrder(2, 300.0, "customer2");
-
-    	PriorityQueue<CustomerOrder> customerOrders = new PriorityQueue<>();
-    	customerOrders.add(c1);
-    	customerOrders.add(c2);
-    	customerOrders.add(c3);
-    	while (!customerOrders.isEmpty()) {
-    		System.out.println(customerOrders.poll());
-    	}
-    }
 }
 
+/*
+orderId:1, orderAmount:100.0, customerName:customer1
+orderId:2, orderAmount:300.0, customerName:customer2
+orderId:3, orderAmount:50.0, customerName:customer3
+*/

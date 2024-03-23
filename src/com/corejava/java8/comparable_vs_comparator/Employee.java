@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Employee implements Comparable<Employee>{
+public class Employee implements Comparable<Employee> {
     private int employeeId;
     private double salary;
 
@@ -18,20 +18,6 @@ public class Employee implements Comparable<Employee>{
         this.employeeId = employeeId;
         this.salary = salary;
         this.deptName = deptName;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "employeeId=" + employeeId +
-                ", salary=" + salary +
-                ", deptName='" + deptName + '\'' +
-                '}';
-    }
-
-    @Override
-    public int compareTo(Employee e) {
-        return Double.compare(this.employeeId, e.employeeId);
     }
 
     public static void main(String[] args) {
@@ -56,8 +42,22 @@ public class Employee implements Comparable<Employee>{
         };
 
         System.out.println("==============================================================");
-    //    Collections.sort(employees, comparator);
+        //    Collections.sort(employees, comparator);
         Collections.sort(employees);
         employees.forEach(System.out::println);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", salary=" + salary +
+                ", deptName='" + deptName + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Employee e) {
+        return Double.compare(this.employeeId, e.employeeId);
     }
 }

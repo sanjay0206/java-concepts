@@ -14,7 +14,7 @@ public class PriorityQueueEx {
         numbers.add(100);
         System.out.println("PriorityQueue: " + numbers);
         numbers.offer(1);
-   
+
         System.out.println("Updated PriorityQueue: " + numbers);
 
         // Remove items from the Priority Queue (DEQUEUE)
@@ -24,3 +24,13 @@ public class PriorityQueueEx {
 
     }
 }
+
+/*
+PriorityQueue: [100, 500, 900, 750]
+Updated PriorityQueue: [1, 100, 900, 750, 500]
+        1
+        100
+        500
+        750
+        900
+*/

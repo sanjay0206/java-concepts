@@ -1,12 +1,12 @@
 package com.corejava.basics.classmembers;
- class Country {
+
+class Country {
+    // Static variable
+    public static int countryCounter; // Shared among all objects of the class
     // Non-static variables
     private String countryName; // Each object of the class will have its own copy
     private String countryCode; // Each object of the class will have its own copy
     private String continentName; // Each object of the class will have its own copy
-
-    // Static variable
-    public static int countryCounter; // Shared among all objects of the class
 
     // Constructor to initialize non-static variables
     public Country(String name, String code, String continent) {
@@ -14,17 +14,6 @@ package com.corejava.basics.classmembers;
         this.countryCode = code;
         this.continentName = continent;
         countryCounter++; // Incrementing the countryCounter every time a new Country object is created
-    }
-
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public String getCountryCode() {
-        return countryCode;
-    }
-    public String getContinentName() {
-        return continentName;
     }
 
     public static void main(String[] args) {
@@ -41,6 +30,18 @@ package com.corejava.basics.classmembers;
 
         // Displaying the total number of countries created
         System.out.println("Total countries created: " + Country.countryCounter);
+    }
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public String getContinentName() {
+        return continentName;
     }
 }
 
