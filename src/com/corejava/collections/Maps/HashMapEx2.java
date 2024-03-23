@@ -16,8 +16,7 @@ public class HashMapEx2 {
         fruitsMap.put("Grape", "Grape".length());
         fruitsMap.put("Peach", "Peach".length());
         fruitsMap.put("Mango", "Mango".length());
-
-        fruitsMap.forEach((key, value) -> System.out.println(key + " -> " + value));
+        System.out.println(fruitsMap);
 
         fruitsMap.entrySet()
                 .stream()
@@ -36,3 +35,14 @@ public class HashMapEx2 {
     }
 
 }
+
+/*
+{Apple=5, Grape=5, Peach=5, Mango=5, Orange=6, Banana=6}
+Apple=5
+Grape=5
+Peach=5
+Mango=5
+Orange=6
+Banana=6
+Keys with string length 6: [Orange, Banana]
+*/

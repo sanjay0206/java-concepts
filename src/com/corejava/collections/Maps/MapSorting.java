@@ -22,7 +22,6 @@ public class MapSorting {
             System.out.println("Key: " + key + ", Value: " + unsortedMap.get(key));
         }
 
-
         List<String> sortByValue = new ArrayList<>(unsortedMap.values());
         Collections.sort(sortByValue);
         System.out.println("sortByValue: " + sortByValue);
@@ -67,3 +66,53 @@ public class MapSorting {
 
     }
 }
+
+/*
+sortByKey: [1, 2, 3, 4, 5, 6]
+Key: 1, Value: Orange
+Key: 2, Value: Banana
+Key: 3, Value: Apple
+Key: 4, Value: Mango
+Key: 5, Value: Peach
+Key: 6, Value: Grape
+sortByValue: [Apple, Banana, Grape, Mango, Orange, Peach]
+Sorted by key in asc order using Tree Map:::
+1: Orange
+2: Banana
+3: Apple
+4: Mango
+5: Peach
+6: Grape
+
+Sorted by key in asc order:::
+1=Orange
+2=Banana
+3=Apple
+4=Mango
+5=Peach
+6=Grape
+
+Sorted by key in desc order:::
+6=Grape
+5=Peach
+4=Mango
+3=Apple
+2=Banana
+1=Orange
+
+Sorted by value in asc order:::
+3=Apple
+2=Banana
+6=Grape
+4=Mango
+1=Orange
+5=Peach
+
+Sorted by value in dsc order:::
+3=Apple
+2=Banana
+6=Grape
+4=Mango
+1=Orange
+5=Peach
+*/

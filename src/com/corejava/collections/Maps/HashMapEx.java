@@ -36,7 +36,6 @@ public class HashMapEx {
         Set<String> countries = countryISOCodeMapping.keySet();
         System.out.println("countries : " + countries);
 
-
         // HashMap's values
         Collection<String> isoCodes = countryISOCodeMapping.values();
         System.out.println("isoCodes : " + isoCodes);
