@@ -54,7 +54,6 @@ public class HashMapVSHashTable {
 
 }
 
-
 /*
 Hash Map size before iteration: 5
 key1: value1
@@ -63,7 +62,7 @@ key2: null
 key3: null
 key4: null
 Hash Table size before iteration: 3
-3: Scala
-2: Python
-1: Java
+element: Scala
+element: Python
+element: Java
 */
