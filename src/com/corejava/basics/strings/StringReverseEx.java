@@ -48,3 +48,10 @@ public class StringReverseEx {
         System.out.println(reverse(name));
     }
 }
+
+/*
+[sanjay, hari, karthi, koushik]
+[koushik, karthi, hari, sanjay]
+Animal
+laminA
+*/
