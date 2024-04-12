@@ -1,4 +1,4 @@
-package com.java8.funcinterface;
+package com.corejava.java8.funcinterface;
 
 // If we want to restrict the interface to have only one method we can use functional interface
 

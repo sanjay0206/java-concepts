@@ -30,7 +30,6 @@ public class StudentStreamEx {
                 .count();
         System.out.println(c);
 
-
         // printing duplicates without using Set and List
         studentList.stream()
                 .distinct()

@@ -1,4 +1,4 @@
-package com.java8.comparable_vs_comparator;
+package com.corejava.java8.comparable_vs_comparator;
 
 import java.util.ArrayList;
 import java.util.Collections;
