@@ -27,7 +27,6 @@ public class FunctionalInterfaceEx {
         // Applying the Consumer to each name
         cities.forEach(convertToUppercase);
 
-
         Consumer<String> printUpperCase = str -> System.out.println(str.toUpperCase());
         printUpperCase.accept("hello"); //  HELLO
 

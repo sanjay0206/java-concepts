@@ -2,7 +2,7 @@ package com.corejava.reflection;
 
 public class Cat {
 
-    private final String name; 
+    private final String name;
     private final int age;
 
     public Cat(String name, int age) {
