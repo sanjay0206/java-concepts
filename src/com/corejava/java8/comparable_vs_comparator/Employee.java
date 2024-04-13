@@ -8,7 +8,6 @@ import java.util.List;
 public class Employee implements Comparable<Employee> {
     private int employeeId;
     private double salary;
-
     private String deptName;
 
     public Employee() {
