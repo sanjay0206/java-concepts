@@ -29,3 +29,12 @@ public class HashMapThread extends Thread {
         }
     }
 }
+
+/*op:
+100=X
+101=Y
+Exception in thread "main" java.util.ConcurrentModificationException
+at java.util.HashMap$HashIterator.nextNode(HashMap.java:1445)
+at java.util.HashMap$EntryIterator.next(HashMap.java:1479)
+at java.util.HashMap$EntryIterator.next(HashMap.java:1477)
+at com.corejava.collections.Maps.thread.HashMapThread.main(HashMapThread.java:14)*/

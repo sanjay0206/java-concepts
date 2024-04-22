@@ -29,3 +29,10 @@ public class ConcurrentHashMapThread extends Thread {
         }
     }
 }
+
+/*op:
+100=X
+101=Y
+102=Z
+103=D
+{100=X, 101=Y, 102=Z, 103=D}*/
