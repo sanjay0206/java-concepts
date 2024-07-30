@@ -61,7 +61,7 @@ public class MapSorting {
         System.out.println("Sorted by value in dsc order:::");
         unsortedMap.entrySet()
                 .stream()
-                .sorted(Map.Entry.comparingByValue())
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .forEach(System.out::println);
 
     }

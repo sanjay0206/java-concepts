@@ -34,7 +34,7 @@ public class EmployeeStreamEx {
                 })
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
-//
+
 //        // Fetch top 3 salaried employees details?
 //        List<Employee> top3SalEmps = employees.stream().sorted(((o1, o2) -> ((int) o2.getSalary() - (int) o1.getSalary())))
 //                .limit(3)

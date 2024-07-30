@@ -1,4 +1,4 @@
-package Sets;
+package com.corejava.collections.Sets;
 
 import java.util.HashSet;
 
@@ -18,6 +18,7 @@ public class HashSetEx {
         hset.add("Apple");
         hset.add("Mango");
         //Addition of null values
+        hset.add(null);
         hset.add(null);
         hset.add(null);
 
