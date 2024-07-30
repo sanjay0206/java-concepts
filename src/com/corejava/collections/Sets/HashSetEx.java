@@ -5,8 +5,7 @@ import java.util.HashSet;
 public class HashSetEx {
     public static void main(String args[]) {
         // HashSet declaration
-        HashSet<String> hset =
-                new HashSet<>();
+        HashSet<String> hset = new HashSet<>();
 
         // Adding elements to the HashSet
         hset.add("Apple");

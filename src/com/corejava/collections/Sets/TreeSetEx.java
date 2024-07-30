@@ -1,4 +1,4 @@
-package Sets;
+package com.corejava.collections.Sets;
 
 import java.util.TreeSet;
 
@@ -10,7 +10,6 @@ public class TreeSetEx {
         students.add("Robert");
         students.add("Mark");
         students.add("Steven");
-
 
         // No duplicates are allowed
         students.add("Steven");
@@ -26,7 +25,6 @@ public class TreeSetEx {
             System.out.println("TreeSet contains the element : " + name);
         else
             System.out.println("TreeSet does not contain the element : " + name);
-
 
         // Navigating through the TreeSet
         System.out.println("First element : " + students.first());

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class HashMapEx2 {
+public class HashMapFilterEx {
     public static void main(String[] args) {
         HashMap<String, Integer> fruitsMap = new HashMap<>();
 
