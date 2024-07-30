@@ -19,3 +19,12 @@ public class HashMapWorking {
         }
     }
 }
+
+/*
+key = Pradeep, hash = 1342234603, index = 13
+key = Jessi, hash = 71463630, index = 0
+key = Nikitha, hash = 681036460, index = 10
+key = Janu, hash = 2301278, index = 8
+key = karthik, hash = 935485838, index = 8
+key = Ram, hash = 81918, index = 3
+*/
