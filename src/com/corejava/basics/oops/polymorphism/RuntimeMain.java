@@ -1,4 +1,4 @@
-package com.corejava.basics.oops.runtimepolymorphism;
+package com.corejava.basics.oops.polymorphism;
 
 class Animal {
     public void makeSound() {
@@ -20,7 +20,7 @@ class Cat extends Animal {
     }
 }
 
-public class Main{
+public class RuntimeMain{
 
     public static void main(String[] args) {
         Animal dog = new Dog();
