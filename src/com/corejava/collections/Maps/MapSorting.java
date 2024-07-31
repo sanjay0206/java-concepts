@@ -62,7 +62,7 @@ public class MapSorting {
         unsortedMap.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                .forEach(System.out::println);
+                .forEach(entry -> System.out.println("Key: " + entry.getKey() + " value: " + entry.getValue()));
 
     }
 }
