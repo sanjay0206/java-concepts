@@ -41,10 +41,30 @@ This API.md file provides a simplified comparison between SOAP and REST API in a
         </pizza:OrderPizza>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
+```
+### Ordering Pizza with REST Request:
+```xml
+<OrderPizza xmlns="http://www.example.com/pizzaService">
+<pizzaCategory>non-vegetarian</pizzaCategory>
+<pizzaName>Spicy Meat Feast</pizzaName>
+<size>large</size>
+<toppings>
+    <topping>pepperoni</topping>
+    <topping>sausage</topping>
+    <topping>ham</topping>
+    <topping>bacon</topping>
+</toppings>
+<deliveryAddress>
+    <street>123 Main St</street>
+    <city>Anytown</city>
+    <state>CA</state>
+    <zip>12345</zip>
+</deliveryAddress>
+</OrderPizza>
 
 ```
 
-### Ordering Pizza with SOAP Request:
+### Ordering Pizza with REST Request:
 
 ```json5
 POST /api/orderPizza
