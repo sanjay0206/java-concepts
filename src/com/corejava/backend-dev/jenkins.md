@@ -18,20 +18,63 @@ Jenkins is an open-source automation server that helps automate parts of the sof
 ## Pipeline Script
 
 ```groovy
+def projectId = params.projectId
+def version = params.version
+def branchName = params.branchName
+def projectName = params.projectName
+
+def initialize() {
+    def parameters = [
+        projectId: projectId,
+        branchName: branchName,
+        version: version,
+        projectName: projectName
+    ]
+    echo "Initializing project with parameters: ${parameters}"
+    return projectName
+}
+
+def dockerRun(containerName, imageName) {
+    sh "docker stop ${containerName} || true"
+    sh "docker rm ${containerName} || true"
+    sh "docker run -d --name ${containerName} -p 8080:8080 ${imageName}"
+}
+
+def sendNotification(status) {
+    def subject = "${status.toUpperCase()}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+    def body = status == "SUCCESS" ? 
+        "Good news! The build and deployment of ${env.JOB_NAME} #${env.BUILD_NUMBER} was successful." : 
+        "Unfortunately, the build and deployment of ${env.JOB_NAME} #${env.BUILD_NUMBER} failed. Please check the Jenkins console output for more details."
+    
+    mail to: 'team@example.com', subject: subject, body: body
+}
+
 pipeline {
     agent any
+    
+    tools {
+        maven 'Maven3' // Use the name of your Maven installation configured in Jenkins
+        jdk 'JavaJDK' // Use the name of your JDK installation configured in Jenkins
+    }
 
     environment {
-        // Define any environment variables here
-        MAVEN_HOME = tool 'Maven' // Make sure to configure Maven in Jenkins
-        JAVA_HOME = tool 'JDK 11' // Make sure to configure JDK in Jenkins
+        MAVEN_HOME = tool 'Maven3' // This will dynamically set the path to the Maven tool
+        JAVA_HOME = tool 'JavaJDK' // This will dynamically set the path to the JDK tool
     }
 
     stages {
+        stage('Initialize') {
+            steps {
+                script {
+                    env.PROJECT_NAME = initialize()
+                }
+            }
+        }
+        
         stage('Checkout') {
             steps {
                 // Checkout code from version control
-                git 'https://github.com/your-repo/your-spring-boot-project.git'
+                git url: 'https://github.com/your-repo/your-spring-boot-project.git', branch: branchName
             }
         }
 
@@ -67,7 +110,11 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    def dockerImage = docker.build("your-docker-repo/your-spring-boot-app:${env.BUILD_NUMBER}")
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
+                        def dockerImage = docker.build("your-docker-repo/your-spring-boot-app:${env.BUILD_NUMBER}")
+                        dockerImage.push("${env.BUILD_NUMBER}")
+                        dockerImage.push("latest")
+                    }
                 }
             }
         }
@@ -76,13 +123,8 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
-                        dockerImage.push("${env.BUILD_NUMBER}")
-                        dockerImage.push("latest")
+                        dockerRun('spring-boot-app-dev', "your-docker-repo/your-spring-boot-app:${env.BUILD_NUMBER}")
                     }
-                    // Deploy the Docker container to your development environment
-                    sh """
-                    docker run -d --name spring-boot-app-dev -p 8080:8080 your-docker-repo/your-spring-boot-app:${env.BUILD_NUMBER}
-                    """
                 }
             }
         }
@@ -91,12 +133,8 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
-                        dockerImage.push("${env.BUILD_NUMBER}")
+                        dockerRun('spring-boot-app-uat', "your-docker-repo/your-spring-boot-app:${env.BUILD_NUMBER}")
                     }
-                    // Deploy the Docker container to your UAT environment
-                    sh """
-                    docker run -d --name spring-boot-app-uat -p 8080:8080 your-docker-repo/your-spring-boot-app:${env.BUILD_NUMBER}
-                    """
                 }
             }
         }
@@ -105,42 +143,24 @@ pipeline {
             steps {
                 input message: 'Deploy to Production?', ok: 'Deploy'
                 script {
-                    // Stop and remove the current running container
-                    sh "docker stop spring-boot-app-prod || true"
-                    sh "docker rm spring-boot-app-prod || true"
-                    // Run the new Docker container in production
-                    sh """
-                    docker run -d --name spring-boot-app-prod -p 8080:8080 your-docker-repo/your-spring-boot-app:${env.BUILD_NUMBER}
-                    """
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
+                        dockerRun('spring-boot-app-prod', "your-docker-repo/your-spring-boot-app:${env.BUILD_NUMBER}")
+                    }
                 }
             }
         }
     }
 
-   post {
+    post {
         always {
             // Clean up workspace after the build
             cleanWs()
         }
         success {
-            // Notify success via email
-            mail to: 'team@example.com',
-                 subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                 body: "Good news! The build and deployment of ${env.JOB_NAME} #${env.BUILD_NUMBER} was successful."
-            // Notify success via Slack
-            slackSend channel: '#builds',
-                      color: 'good',
-                      message: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+            sendNotification("SUCCESS")
         }
         failure {
-            // Notify failure via email
-            mail to: 'team@example.com',
-                 subject: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                 body: "Unfortunately, the build and deployment of ${env.JOB_NAME} #${env.BUILD_NUMBER} failed. Please check the Jenkins console output for more details."
-            // Notify failure via Slack
-            slackSend channel: '#builds',
-                      color: 'danger',
-                      message: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+            sendNotification("FAILURE")
         }
     }
 }
