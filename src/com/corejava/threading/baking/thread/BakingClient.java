@@ -69,7 +69,6 @@ class BakingClient {
         chocoCake.start();
 
         System.out.println(chocoCake.getName() + " isAlive " + chocoCake.isAlive());
-
     }
 }
 
