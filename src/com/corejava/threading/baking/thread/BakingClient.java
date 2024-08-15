@@ -6,7 +6,7 @@ class Dessert {
     }
 }
 
-// Here since multiple inheritance is not support we can't extend Dessert so not able to use server().
+// Here since multiple inheritance is not support we can't extend Dessert so not able to use serve().
 class Cake extends Thread {
     public void run() {
         System.out.println("Mixing Ingredients for Cake with id: " + Cake.currentThread().getId());
