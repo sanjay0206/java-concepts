@@ -7,6 +7,8 @@ public class PriorityQueueEx {
 
     public static void main(String[] args) {
         // PriorityQueue with custom priority based on urgency
+        // PriorityQueue is implemented with Binary Heap Structure
+        // Internally, a binary heap is usually implemented with an array, not a linked list.
         Queue<Task> taskQueue = new PriorityQueue<>();
 
         // Adding tasks with different priorities
