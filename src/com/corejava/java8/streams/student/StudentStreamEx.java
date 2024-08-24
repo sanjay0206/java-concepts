@@ -57,6 +57,7 @@ public class StudentStreamEx {
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
+        // map -> one to one  flatMap -> one to many
         // 4. Display all contact unique numbers
         System.out.println("4. Display all unique contact numbers");
         studentList.stream().flatMap(student -> student.getContacts().stream())
@@ -64,7 +65,6 @@ public class StudentStreamEx {
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
-        // map -> one to one  flatMap -> one to many
         // 5. Group students by Department Names
         System.out.println("5. Group students by Department Names");
         studentList.stream()

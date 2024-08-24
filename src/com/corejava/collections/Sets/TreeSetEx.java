@@ -36,3 +36,13 @@ public class TreeSetEx {
 
     }
 }
+
+/*
+Students TreeSet : [Julia, Mark, Robert, Steven]
+Number of elements in the TreeSet : 4
+TreeSet contains the element : Julia
+First element : Julia
+Last element : Steven
+Element just greater than Robert : Steven
+Element just lower than Robert : Mark
+*/

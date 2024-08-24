@@ -1,36 +1,32 @@
 package com.corejava.collections.Queue;
 
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class PriorityQueueEx {
+
     public static void main(String[] args) {
-        // Create a Priority Queue
-        PriorityQueue<Integer> numbers = new PriorityQueue<>();
+        // PriorityQueue with custom priority based on urgency
+        Queue<Task> taskQueue = new PriorityQueue<>();
 
-        // Add items to a Priority Queue (ENQUEUE)
-        numbers.add(750);
-        numbers.add(500);
-        numbers.add(900);
-        numbers.add(100);
-        System.out.println("PriorityQueue: " + numbers);
-        numbers.offer(1);
+        // Adding tasks with different priorities
+        taskQueue.offer(new Task("Fix critical bug", 1)); // Highest priority
+        taskQueue.offer(new Task("Review code", 3));
+        taskQueue.offer(new Task("Update documentation", 2)); // Medium priority
 
-        System.out.println("Updated PriorityQueue: " + numbers);
-
-        // Remove items from the Priority Queue (DEQUEUE)
-        while (!numbers.isEmpty()) {
-            System.out.println(numbers.poll());
+        // Processing tasks based on priority
+        System.out.println("Processing tasks by priority:");
+        while (!taskQueue.isEmpty()) {
+            Task task = taskQueue.poll();
+            System.out.println("Processing: " + task.getDescription());
         }
-
     }
+
 }
 
 /*
-PriorityQueue: [100, 500, 900, 750]
-Updated PriorityQueue: [1, 100, 900, 750, 500]
-        1
-        100
-        500
-        750
-        900
+Processing tasks by priority:
+Processing: Fix critical bug
+Processing: Update documentation
+Processing: Review code
 */

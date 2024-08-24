@@ -14,7 +14,7 @@ public class TicketCounter {
         }
 
         if (availableSeats >= numberOfSeats) {
-            availableSeats -= numberOfSeats;
+            availableSeats = availableSeats - numberOfSeats;
             System.out.println("Booking successful! " + numberOfSeats + " seat" + (numberOfSeats == 1 ? "" : "s") + " reserved for " + pName + ".");
         } else {
             System.out.println("Booking failed for " + pName + ". Only " + availableSeats + " seat" + (availableSeats == 1 ? "" : "s") + " available, but you requested " + numberOfSeats + ".");

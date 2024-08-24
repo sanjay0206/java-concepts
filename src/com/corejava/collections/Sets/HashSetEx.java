@@ -13,15 +13,17 @@ public class HashSetEx {
         hset.add("Grapes");
         hset.add("Orange");
         hset.add("Fig");
+
         //Addition of duplicate elements
         hset.add("Apple");
         hset.add("Mango");
+
         //Addition of null values
         hset.add(null);
         hset.add(null);
         hset.add(null);
 
         //Displaying HashSet elements
-        System.out.println(hset);
+        System.out.println(hset); // [null, Apple, Grapes, Fig, Mango, Orange]
     }
 }
