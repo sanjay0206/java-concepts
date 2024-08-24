@@ -26,9 +26,8 @@ Fail-safe iterators work on a snapshot of the collection and allow modifications
     - During iteration, the iterator compares the current `modCount` of the collection with its snapshot.
     - If the values differ, indicating that the collection has been modified, a `ConcurrentModificationException` is thrown.
 
-## Common Cases
-
-### 1. Modifying a Collection During Iteration
+## Common Case
+### Modifying a Collection During Iteration
 **Scenario**: You are iterating over a collection and modify it (e.g., adding or removing elements) during the iteration.
 
 **Problematic Code:**
@@ -40,50 +39,23 @@ for (String item : list) {
     }
 }
 ```
-**Solution**: Using Iterator.remove()
-```java
-List<String> list = new ArrayList<>(Arrays.asList("A", "B", "C", "D", "E"));
-Iterator<String> iterator = list.iterator();
-while (iterator.hasNext()) {
-String item = iterator.next();
-    if (item.equals("C")) {
-        iterator.remove(); // Safely remove the element
-    }
-}
-```
-
-### 2. Using a Non-Fail-Safe Iterator
-**Scenario**: You are iterating over a collection and modify it (e.g., adding or removing elements) during the iteration.
-
-**Problematic Code:**
-```java
-List<String> list = new ArrayList<>(Arrays.asList("A", "B", "C", "D", "E"));
-Iterator<String> iterator = list.iterator();
-while (iterator.hasNext()) {
-    String item = iterator.next();
-    list.remove(item); // ConcurrentModificationException
-}
-```
 **Solution**: Using Iterator.remove() or CopyOnWriteArrayList
 ```java
 // Option 1: Using Iterator.remove()
 Iterator<String> iterator = list.iterator();
 while (iterator.hasNext()) {
-    iterator.next();
+        iterator.next();
     iterator.remove(); // Safely remove the element
 }
 
 // Option 2: Using CopyOnWriteArrayList
 List<String> list = new CopyOnWriteArrayList<>(Arrays.asList("A", "B", "C", "D", "E"));
 for (String item : list) {
-    list.remove(item); // No ConcurrentModificationException
+        list.remove(item); // No ConcurrentModificationException
 }
 ```
 
-### 3. Structural Modification During Iteration
-**Scenario**: Structural modifications include adding, removing, or clearing elements in a collection during iteration.
-
-**Problematic Code:**
+**Problematic Code with Map::**
 ```java
 Map<Integer, String> map = new HashMap<>();
 map.put(1, "One");
