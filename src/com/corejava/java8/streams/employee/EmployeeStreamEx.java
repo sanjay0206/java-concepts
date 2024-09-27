@@ -1,7 +1,9 @@
 package com.corejava.java8.streams.employee;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class EmployeeStreamEx {
@@ -58,5 +60,22 @@ public class EmployeeStreamEx {
 //                .skip(3)
 //                .collect(Collectors.toList())
 //                .forEach(System.out::println);
+
+        // Find Employee with max salary
+        Employee maxSalaryEmployee = employees.stream()
+                .max(Comparator.comparing(Employee::getSalary))
+                .orElse(null);
+
+        // Find Employee with min salary
+        Employee minSalaryEmployee = employees.stream()
+                .min(Comparator.comparing(Employee::getSalary))
+                .orElse(null);
+
+        // Group employees by salary range (e.g., <2000, >=2000)
+        Map<String, List<Employee>> groupedBySalary =
+                employees.stream()
+                .collect(Collectors.groupingBy(emp -> emp.getSalary() < 2000 ? "Below 2000" : "2000 and above"));
+
+        System.out.println(groupedBySalary);
     }
 }

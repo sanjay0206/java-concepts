@@ -5,6 +5,9 @@ memory, a database, or a file. Its main purpose is to save the state of an objec
 when needed. This is particularly useful in scenarios where the object needs to be transmitted over a network, or when
 it needs to be saved to a file for later use.
 
+<img src="what-is-serialization-in-java.webp" alt="Serialization" width="600" height="500">
+
+
 ## Need for Serialization
 
 Serialization is necessary in various scenarios, including:

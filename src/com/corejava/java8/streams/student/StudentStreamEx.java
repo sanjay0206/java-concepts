@@ -38,13 +38,15 @@ public class StudentStreamEx {
 
         // 1. Find the list of students  whose rank is in between 50 and 100
         System.out.println(" 1. Find the list of students  whose rank is in between 50 and 100");
-        studentList.stream().filter(student -> student.getRank() > 50 && student.getRank() < 100)
+        studentList.stream()
+                .filter(student -> student.getRank() > 50 && student.getRank() < 100)
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
         // 2. Find the students who stays in Karnataka and sort them by their names
         System.out.println("2. Find the students who stays in Karnataka and sort them by their names");
-        studentList.stream().filter(student -> student.getCity().equals("Karnataka"))
+        studentList.stream()
+                .filter(student -> student.getCity().equals("Karnataka"))
                 .sorted(Comparator.comparing(Student::getFirstName))
                 //   .sorted(Comparator.comparing(Student::getFirstName, Comparator.reverseOrder()))
                 .collect(Collectors.toList())
@@ -52,7 +54,8 @@ public class StudentStreamEx {
 
         // 3. Find all unique departments names
         System.out.println("3. Find all unique departments names");
-        studentList.stream().map(Student::getDept)
+        studentList.stream()
+                .map(Student::getDept)
                 .distinct()
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
@@ -60,7 +63,8 @@ public class StudentStreamEx {
         // map -> one to one  flatMap -> one to many
         // 4. Display all contact unique numbers
         System.out.println("4. Display all unique contact numbers");
-        studentList.stream().flatMap(student -> student.getContacts().stream())
+        studentList.stream()
+                .flatMap(student -> student.getContacts().stream())
                 .distinct()
                 .collect(Collectors.toList())
                 .forEach(System.out::println);

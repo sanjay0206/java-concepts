@@ -30,6 +30,9 @@ public class StackEx {
             System.out.println("Found the element Queen at position : " + position);
         else
             System.out.println("Element not found");
+
+
+        System.out.print(Integer.MAX_VALUE);
     }
 }
 /*

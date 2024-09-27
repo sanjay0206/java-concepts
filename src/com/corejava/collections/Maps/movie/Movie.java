@@ -1,5 +1,7 @@
 package com.corejava.collections.Maps.movie;
 
+import java.util.Objects;
+
 public class Movie {
     private String title;
     private int year;
@@ -32,26 +34,27 @@ public class Movie {
 
     @Override
     public boolean equals(Object o) {
-        // Check if the object is the same instance
+        // Reference equality
         if (this == o) return true;
 
-        // Check if the object is null or not of the same class
+        // Class equality
         if (o == null || this.getClass() != o.getClass()) return false;
 
         // Cast the object to Movie
         Movie movie = (Movie) o;
 
-        // Compare the title, year, and director fields for equality
-        return this.year == movie.year &&
-                this.title.equals(movie.title);
+        // Field-based comparison
+        return this.year == movie.year && this.title.equals(movie.title);
     }
 
     @Override
     public int hashCode() {
         // Using a prime number (31) to help ensure a good distribution of hash codes
-        int hash = 31 * title.hashCode(); // Base hash code for title
-        hash = 31 * hash + year;        // Incorporate year + year since it is primitive datatype
+        int hash = 31 * title.hashCode();
+        hash = 31 * hash + year;
         return hash;
+
+//        return Objects.hash(year, title);
     }
 }
 

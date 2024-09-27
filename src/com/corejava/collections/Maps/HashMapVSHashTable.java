@@ -46,10 +46,11 @@ public class HashMapVSHashTable {
             System.out.println("element: " + e.nextElement());
         }
     }
-    public static void main(String[] args) {
-        getHashTable();
 
-        getHashMap();
+    public static void main(String[] args) {
+      //  getHashTable();
+
+       getHashMap();
     }
 
 }
