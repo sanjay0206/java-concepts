@@ -35,7 +35,7 @@ abstract class Vehicle {
 
     // Concrete method
     public void refuel(int amount) {
-        fuel += amount;
+        fuel = fuel + amount;
         System.out.println("Refueled. Fuel level: " + fuel);
     }
 
