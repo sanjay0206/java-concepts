@@ -2,7 +2,7 @@ package com.corejava.java8.comparable_vs_comparator;
 
 import java.util.*;
 
-public class Main {
+public class SortBasedOnLastDigit {
     public static void main(String[] args) {
         List<Integer> nums = new ArrayList<>(Arrays.asList(43, 31, 72, 29, 69));
         System.out.println(nums);
@@ -27,7 +27,7 @@ public class Main {
             // return Integer.compare(rem1, rem2);
         };
 
-        Collections.sort(nums, comparator);
+        nums.sort(comparator);
         System.out.println(nums);
     }
 }

@@ -1,6 +1,7 @@
 package com.corejava.java8.streams;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class ArrayStreamEx {

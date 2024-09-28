@@ -1,104 +1,45 @@
 package com.corejava.java8.funcinterface;
 
-import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class FunctionalInterfaceEx {
-    // Consumer
-    @Test
-    public void printCities() {
 
-        List<String> cities = new ArrayList<>();
-        cities.add("Delhi");
-        cities.add("Mumbai");
-        cities.add("Goa");
-        cities.add("Pune");
+    public static void main(String[] args) {
 
-        // Using a Consumer to convert names to uppercase
+        List<String> cities = Arrays.asList("Delhi", "Mumbai", "Goa", "Pune");
+
+        // Using Consumer and andThen
         Consumer<String> convertToUppercase = name -> System.out.println("Converted name: " + name.toUpperCase());
+        Consumer<String> convertToLowercase = name -> System.out.println("Converted name: " + name.toLowerCase());
+        convertToUppercase.andThen(convertToLowercase).accept("chennai");   // Chaining consumers
 
-        // Applying the Consumer to each name
-        cities.forEach(convertToUppercase);
-
-        Consumer<String> printUpperCase = str -> System.out.println(str.toUpperCase());
-        printUpperCase.accept("hello"); //  HELLO
-
-      /*  Converted name: DELHI
-          Converted name: MUMBAI
-          Converted name: GOA
-          Converted name: PUNE
-       */
-    }
-
-    // Predicate
-    @Test
-    public void filterCities() {
-
-        List<String> cities = new ArrayList<>();
-        cities.add("Delhi");
-        cities.add("Mumbai");
-        cities.add("Goa");
-        cities.add("Pune");
-
-        Predicate<String> filterCity = city -> city.equals("Mmbai");
+        // Using Predicate
+        Predicate<String> filteredCities = city -> city.equals("Mumbai") || city.equals("Goa");
+        Predicate<String> startsWithG = city -> city.startsWith("G");
+        System.out.println("Filtered Cities:");
         cities.stream()
-                .filter(filterCity)
-                .forEach(System.out::println); // Mumbai
+                .filter(filteredCities.and(startsWithG)) // Combining predicates
+                .forEach(System.out::println);
 
         Predicate<Integer> isEven = num -> num % 2 == 0;
         System.out.println(isEven.test(4)); // Output: true
         System.out.println(isEven.test(7)); // Output: false
-    }
 
-    // Function
-    @Test
-    public void mapCities() {
-
-        List<String> cities = new ArrayList<>();
-        cities.add("Delhi");
-        cities.add("Mumbai");
-        cities.add("Goa");
-        cities.add("Pune");
-
-        Function<String, Character> getFirstCharFunction = city -> city.charAt(0);
-        cities.stream()
-                .map(getFirstCharFunction)
-                .forEach(System.out::println);
-
-        /* D
-           M
-           G
-           P
-        */
-
+        // Using Function and andThen
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
         Function<Integer, Integer> squareFunction = num -> num * num;
+        Function<Integer, String> squareToStringFunction = num -> "Square: " + num;
+        System.out.println("Squared Numbers:");
         numbers.stream()
-                .map(squareFunction)
+                .map(squareFunction.andThen(squareToStringFunction)) // Chaining functions
                 .forEach(result -> System.out.print(result + " "));
 
-        // 1 4 9 16 25
-    }
-
-    // Supplier
-    @Test
-    public void supplyCities() {
-
+        // Using Supplier
         Supplier<Double> randomNumberSupplier = Math::random;
-        System.out.println(randomNumberSupplier.get()); // 0.017852732689994877
-
-        Supplier<String> greetingsSupplier = () -> {
-            String[] greetings = {"Hello", "Bonjour", "Hola", "Namaste"};
-            int randomIndex =  (((int) (Math.random() * 10)) % greetings.length );
-            return greetings[randomIndex];
-        };
-        System.out.println(greetingsSupplier.get()); // Namaste
+        System.out.println("\nRandom Number: " + randomNumberSupplier.get());
     }
 }

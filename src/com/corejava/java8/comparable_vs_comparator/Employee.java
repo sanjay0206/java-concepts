@@ -36,8 +36,6 @@ public class Employee implements Comparable<Employee> {
     public static void main(String[] args) {
 
         List<Employee> employees = new ArrayList<>();
-
-        // Inserting 5 employees
         employees.add(new Employee(103, 50000, "IT"));
         employees.add(new Employee(102, 60000, "HR"));
         employees.add(new Employee(105, 55000, "Finance"));
@@ -56,10 +54,13 @@ public class Employee implements Comparable<Employee> {
                 return -1;
             else
                 return 0;
+
+        //    return Double.compare(e1.salary, e2.salary);
         };
 
         System.out.println("\nSorted based on salary with Comparator and compare():\n====================================================");
-        Collections.sort(employees, comparator);
+//        Collections.sort(employees, comparator);
+        employees.sort(comparator);
         employees.forEach(System.out::println);
     }
 }

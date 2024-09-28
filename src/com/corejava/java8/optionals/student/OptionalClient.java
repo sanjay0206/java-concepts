@@ -1,13 +1,14 @@
-package com.corejava.java8.optionals;
+package com.corejava.java8.optionals.student;
 
 import java.util.Optional;
 
-public class OptionalMain {
+public class OptionalClient {
+
     public static void main(String[] args) {
        /* Student student = getStudentWithName("hmza");
         System.out.println(student.getName());*/
         /*Exception in thread "main" java.lang.NullPointerException
-	    at com.corejava.java8.optionals.OptionalMain.main(OptionalMain.java:8) */
+	    at com.corejava.java8.optionals.student.OptionalMain.main(OptionalMain.java:8) */
 
         Optional<Student> studentOptional = Optional.of(new Student("hamza" , 22 , "Morocco"));
         System.out.println(studentOptional);
@@ -49,8 +50,8 @@ op:
 Optional[Student{name='hamza', age=22, country='Morocco'}]
 hamza
 no one
-Exception in thread "main" com.corejava.java8.optionals.StudentNotFoundException: the Student is not Present
-at com.corejava.java8.optionals.OptionalMain.lambda$main$0(OptionalMain.java:32)
+Exception in thread "main" com.corejava.java8.optionals.student.StudentNotFoundException: the Student is not Present
+at com.corejava.java8.optionals.student.OptionalMain.lambda$main$0(OptionalMain.java:32)
 at java.util.Optional.orElseThrow(Optional.java:290)
-at com.corejava.java8.optionals.OptionalMain.main(OptionalMain.java:32)
+at com.corejava.java8.optionals.student.OptionalMain.main(OptionalMain.java:32)
 */

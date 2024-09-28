@@ -1,4 +1,4 @@
-package com.corejava.java8.optionals;
+package com.corejava.java8.optionals.student;
 
 public class Student {
     private String name;
