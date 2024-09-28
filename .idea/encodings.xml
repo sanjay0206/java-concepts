@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/com/corejava/threading/volatile/Picture1.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/corejava/threading/volatile/Picture2.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/corejava/threading/volatile/Picture3.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/corejava/threading/volatile/Picture4.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/corejava/threading/volatile/Picture5.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/corejava/threading/volatile/Picture6.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/corejava/threading/volatile/Picture7.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/corejava/threading/volatile/Picture8.png" charset="UTF-8" />
     <file url="PROJECT" charset="windows-1252" />
   </component>
 </project>
