@@ -38,5 +38,10 @@ public class ListStreamEx {
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
+        Map<Integer, List<String>> stringsByLength = people
+                .keySet().stream()
+                .collect(Collectors.groupingBy(String::length));
+        System.out.println(stringsByLength);
+
     }
 }

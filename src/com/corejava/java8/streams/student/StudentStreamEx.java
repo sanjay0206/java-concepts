@@ -78,13 +78,15 @@ public class StudentStreamEx {
         // 6. Find the average age of male and female students
         System.out.println("6. Find the average age of male and female students");
         studentList.stream()
-                .collect(Collectors.groupingBy(Student::getGender, Collectors.averagingInt(Student::getAge)))
+                .collect(Collectors.groupingBy(Student::getGender,
+                        Collectors.averagingInt(Student::getAge)))
                 .forEach((key, value) -> System.out.println(key + " -> " + value));
 
         // 7. Find the highest rank in each department
         System.out.println("7. Find the highest rank in each department");
         studentList.stream()
-                .collect(Collectors.groupingBy(Student::getDept, Collectors.minBy(Comparator.comparing(Student::getRank))))
+                .collect(Collectors.groupingBy(Student::getDept,
+                        Collectors.minBy(Comparator.comparing(Student::getRank))))
                 .forEach((key, value) -> System.out.println("Department: " + key + ", Top Student: " + value.orElse(null)));
 
         // 8. Find student who has second rank
