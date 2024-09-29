@@ -1,5 +1,6 @@
 package com.corejava.java8.streams.coding.intsream;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -46,9 +47,10 @@ public class IntStreamEx {
                 .filter(IntStreamEx::isPrime)
                 .forEach(System.out::println);
 
-        long oddCount = IntStream.of(numbers)
-                .filter(num -> num % 2 != 0)
-                .count();
-        System.out.println("Number of odd numbers: " + oddCount);
+        List<String> names = Arrays.asList("John", "Alice", "Bob", "Diana", "Alex");
+
+        IntStream.range(0, names.size())
+                .filter(i -> names.get(i).startsWith("A"))
+                .forEach(i -> System.out.println("Index: " + i + ", Name: " + names.get(i)));
     }
 }
