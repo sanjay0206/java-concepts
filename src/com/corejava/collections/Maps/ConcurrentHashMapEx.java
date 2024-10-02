@@ -45,7 +45,7 @@ public class ConcurrentHashMapEx {
         System.out.println("Movies: " + movies);
 
         for (String key : movies.keySet()) {
-            movies.remove(key); // ConcurrentModificationException
+            movies.remove(key); // ConcurrentModificationException will not be thrown
         }
 
         // Movies: {Breaking Bad=9.2, Iron Man=8.5, The Dark Knight=9.0, The Matrix=8.7, Inception=8.8}
@@ -54,7 +54,7 @@ public class ConcurrentHashMapEx {
     public static void main(String[] args) {
         concurrentHashMap();
 
-        hashMap();
+//        hashMap();
     }
 }
 

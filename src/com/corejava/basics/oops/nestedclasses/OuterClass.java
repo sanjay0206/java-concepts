@@ -7,7 +7,7 @@ public class OuterClass {
         System.out.println("Hey there!!");
 
         class LocalInnerClass {
-            String localInnerClassVariable = "Here' Johnny";
+            final String localInnerClassVariable = "Here' Johnny";
 
             public void printLocalInnerClassVariable() {
                 System.out.println(localInnerClassVariable);
@@ -17,7 +17,7 @@ public class OuterClass {
         lic.printLocalInnerClassVariable();
     }
 
-    class InnerClass {
+    static class InnerClass {
         int num = 10;
 
         public void whatsUp() {
