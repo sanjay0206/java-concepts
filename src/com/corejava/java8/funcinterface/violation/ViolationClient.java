@@ -21,11 +21,12 @@ public class ViolationClient {
 
         // Using lambda expressions
         /* Since we have two abstract methods our lambda does not know which method to invoke inside IDish interface
-           This below code will cause error -> Multiple non-overriding abstract methods found in interface com.corejava.java8.funcinterface.violation.IDish
+           This below code will cause error ->
+           Multiple non-overriding abstract methods found in interface com.corejava.java8.funcinterface.violation.IDish
         */
 
-        // IDish pastaDish = (ingredients) -> System.out.println("Cooking pasta with: " + ingredients);
-       // pastaDish.cook("tomato sauce, garlic, olive oil");
+//        IDish pastaDish = (ingredients) -> System.out.println("Cooking pasta with: " + ingredients);
+//        pastaDish.cook("tomato sauce, garlic, olive oil");
 
     }
 }

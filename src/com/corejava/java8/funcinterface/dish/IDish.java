@@ -7,9 +7,6 @@ interface IDish {
         System.out.println("This is info method from Dish.");
     }
 
-    // Abstract method
-    void cook(String ingredients);
-
     // Default method
     default void serve() {
         System.out.println("Dish is being served.");
@@ -17,6 +14,9 @@ interface IDish {
 
     // Overriding Object class method is allowed
     String toString(); // Overriding the toString method from Object class
+
+    // Abstract method
+    void cook(String ingredients);
 
     // Second abstract method (this violates @FunctionalInterface)
 //    void prepare();
